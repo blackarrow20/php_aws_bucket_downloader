@@ -10,5 +10,5 @@ Enter this command to see which options you have:<br>
 `php downloader.php -h`<br>
 It will print:<br>
 `php downloader.php -h` // to print this help<br>
-`php downloader.php -p` // print info about each object in bucket<br>
+`php downloader.php -p` // print info about each object in bucket or subfolder/prefix<br>
 `php downloader.php -d` // download all files from bucket to local folder<br>
