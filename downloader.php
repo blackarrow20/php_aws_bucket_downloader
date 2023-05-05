@@ -60,7 +60,17 @@ if ($argv[1] == "-d") {
 }
 
 if ($argv[1] == "-r") {
-    $client->deleteMatchingObjects($bucket, $storageFolder);
+    $iterator = $client->getIterator('ListObjects', array(
+        'Bucket' => $bucket,
+        'Prefix' => $storageFolder,
+    ));
+
+    $num = 0;
+    foreach ($iterator as $object) {
+        $num++;
+        $client->deleteObject(array( 'Bucket' => $bucket, 'Key' => $object["Key"] ));
+    }
+    // $client->deleteMatchingObjects($bucket, $storageFolder); // Does not work for Google Cloud
     print("DONE: The whole content from storageFolder = $storageFolder is removed...\n");
     exit;
 }
