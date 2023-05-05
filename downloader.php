@@ -7,8 +7,9 @@ require_once 's3config.php';
 
 function printHelp() {
     print ("php downloader.php -h // to print this help\n");
-    print ("php downloader.php -p // print info about each object in bucket\n");
-    print ("php downloader.php -d // download all files from bucket to local folder\n");
+    print ("php downloader.php -p // print info about each object in bucket or its subfolder/prefix\n");
+    print ("php downloader.php -d // download all files from bucket or subfolder/prefix to local folder\n");
+    print ("php downloader.php -r // remove all files from a bucket or its subfolder/prefix\n");
 }
 
 if (count($argv) != 2) {
@@ -54,7 +55,13 @@ if ($argv[1] == "-p") {
 
 if ($argv[1] == "-d") {
     $client->downloadBucket($directory, $bucket, $storageFolder);
-    print("DONE: The whole bucket is downloaded...\n");
+    print("DONE: The whole content is downloaded...\n");
+    exit;
+}
+
+if ($argv[1] == "-r") {
+    $client->deleteMatchingObjects($bucket, $storageFolder);
+    print("DONE: The whole content from storageFolder = $storageFolder is removed...\n");
     exit;
 }
 
