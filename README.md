@@ -1,6 +1,6 @@
 ### README
 
-This is console application that allows us insight into S3 bucket, allows detailed preview of files within it, and allows us to download or remove those files. Do not open app in browser, but in the console! It is tested to work fine with Amazon S3, Google Cloud S3, BackBlaze.<br>
+This is console application that allows us insight into S3 bucket, allows detailed preview of files within it (or within any of its subfolders/prefixes), and allows us to download or remove those files. Do not open app in browser, but in the console! It is tested to work fine with Amazon S3, Google Cloud S3, BackBlaze.<br>
 <br>
 The application is tested only with PHP 7.4.26.<br>
 First copy s3config_example.php and name it "s3config.php".<br>
