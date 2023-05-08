@@ -1,4 +1,5 @@
-/s3config.php
+/s3config*.php
+!/s3config_example.php
 /downloaded/*
 !/downloaded/*.txt
 /vendor/
